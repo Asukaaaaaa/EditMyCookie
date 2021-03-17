@@ -3,8 +3,24 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
+
+<script lang="ts">
+import { defineComponent, reactive, toRefs } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const state = reactive({
+      count: 0
+    })
+
+    return {
+      ...toRefs(state)
+    }
+  }
+})
+</script>
 
 <style lang="less">
 #app {
